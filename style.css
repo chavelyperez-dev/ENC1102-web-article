@@ -1,29 +1,12 @@
-/* ============================================================
-   BNPL Web Article — style.css
-   Design Guide Compliance:
-   - Single-column, centered layout
-   - Headings: sans-serif (Futura / Trebuchet MS fallback)
-   - Body: serif (Georgia)
-   - Title: 32pt+, Subheadings: 24pt, Body: 13pt
-   - Left-aligned text
-   - High-contrast: black on white/light-grey
-   - Accent: red/orange for warnings, blue for links
-   - Max 3 accent colors
-   - Generous white space
-   - Short paragraphs, scannable layout
-   ============================================================ */
 
-/* ---------- Google Fonts ---------- */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Georgia:ital@0;1&display=swap');
 
-/* ---------- CSS Reset & Base ---------- */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* ---------- Root Variables ---------- */
 :root {
   --color-bg:        #f9f8f6;
   --color-surface:   #ffffff;
@@ -48,7 +31,6 @@
   --side-pad:        clamp(1.25rem, 5vw, 3rem);
 }
 
-/* ---------- Body ---------- */
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
@@ -58,7 +40,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ---------- Article Container (Single Column) ---------- */
 .article-container {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -67,7 +48,6 @@ body {
   box-shadow: 0 0 40px rgba(0,0,0,0.06);
 }
 
-/* ---------- Article Header ---------- */
 .article-header {
   margin-bottom: 2.2rem;
   border-top: 4px solid var(--color-accent-red);
@@ -103,7 +83,6 @@ body {
   margin-top: 0.5rem;
 }
 
-/* ---------- Figures & Images ---------- */
 .article-figure {
   margin: 2rem 0;
 }
@@ -136,7 +115,6 @@ figcaption {
   line-height: 1.5;
 }
 
-/* ---------- Article Body ---------- */
 .article-body {
   margin-top: 1.5rem;
 }
@@ -148,7 +126,6 @@ figcaption {
   color: var(--color-text);
 }
 
-/* ---------- Section Headings ---------- */
 .section-heading {
   font-family: var(--font-heading);
   font-size: var(--size-subheading);
@@ -162,7 +139,6 @@ figcaption {
   padding-bottom: 0.4rem;
 }
 
-/* ---------- Hyperlinks ---------- */
 a {
   color: var(--color-accent-blue);
   text-decoration: underline;
@@ -177,20 +153,17 @@ a:focus {
   opacity: 0.85;
 }
 
-/* Links inside headings inherit heading style but keep blue */
 .section-heading a {
   color: var(--color-accent-blue);
   font-weight: inherit;
   text-decoration: underline;
 }
 
-/* ---------- Warning Keywords ---------- */
 .keyword-warning {
   color: var(--color-accent-red);
   font-weight: 700;
 }
 
-/* ---------- CTA Box (Reclaiming Control) ---------- */
 .cta-box {
   background-color: var(--color-cta-bg);
   border-left: 5px solid var(--color-accent-red);
@@ -213,7 +186,6 @@ a:focus {
   color: var(--color-accent-red);
 }
 
-/* ---------- Footer / References ---------- */
 .article-footer {
   margin-top: 3.5rem;
   padding-top: 1.5rem;
@@ -245,7 +217,6 @@ a:focus {
   font-size: inherit;
 }
 
-/* ---------- Responsive ---------- */
 @media (max-width: 640px) {
   :root {
     --size-title:      1.9rem;
