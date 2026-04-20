@@ -1,0 +1,259 @@
+/* ============================================================
+   BNPL Web Article — style.css
+   Design Guide Compliance:
+   - Single-column, centered layout
+   - Headings: sans-serif (Futura / Trebuchet MS fallback)
+   - Body: serif (Georgia)
+   - Title: 32pt+, Subheadings: 24pt, Body: 13pt
+   - Left-aligned text
+   - High-contrast: black on white/light-grey
+   - Accent: red/orange for warnings, blue for links
+   - Max 3 accent colors
+   - Generous white space
+   - Short paragraphs, scannable layout
+   ============================================================ */
+
+/* ---------- Google Fonts ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Georgia:ital@0;1&display=swap');
+
+/* ---------- CSS Reset & Base ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- Root Variables ---------- */
+:root {
+  --color-bg:        #f9f8f6;
+  --color-surface:   #ffffff;
+  --color-text:      #111111;
+  --color-subtext:   #444444;
+  --color-accent-red:#c0392b;     /* warnings / danger keywords */
+  --color-accent-blue:#1a5fa8;    /* hyperlinks */
+  --color-border:    #e0ddd8;
+  --color-cta-bg:    #fff4f2;
+  --color-cta-border:#c0392b;
+
+  --font-heading:    'Trebuchet MS', 'Futura', 'Century Gothic', Arial, sans-serif;
+  --font-body:       Georgia, 'Times New Roman', serif;
+
+  --size-title:      2.6rem;   /* ≈ 42px / 32pt+ */
+  --size-subheading: 1.7rem;   /* ≈ 27px / 24pt */
+  --size-body:       1.025rem; /* ≈ 16px / 12–13pt */
+  --size-caption:    0.825rem;
+  --size-kicker:     0.78rem;
+
+  --max-width:       720px;
+  --side-pad:        clamp(1.25rem, 5vw, 3rem);
+}
+
+/* ---------- Body ---------- */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--size-body);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Article Container (Single Column) ---------- */
+.article-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3rem var(--side-pad) 4rem;
+  background-color: var(--color-surface);
+  box-shadow: 0 0 40px rgba(0,0,0,0.06);
+}
+
+/* ---------- Article Header ---------- */
+.article-header {
+  margin-bottom: 2.2rem;
+  border-top: 4px solid var(--color-accent-red);
+  padding-top: 1.5rem;
+}
+
+.article-kicker {
+  font-family: var(--font-heading);
+  font-size: var(--size-kicker);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent-red);
+  margin-bottom: 0.75rem;
+}
+
+.article-title {
+  font-family: var(--font-heading);
+  font-size: var(--size-title);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.article-byline {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--color-subtext);
+  border-left: 3px solid var(--color-border);
+  padding-left: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+/* ---------- Figures & Images ---------- */
+.article-figure {
+  margin: 2rem 0;
+}
+
+.figure-full {
+  margin-left: calc(-1 * var(--side-pad));
+  margin-right: calc(-1 * var(--side-pad));
+}
+
+.figure-full .article-img {
+  width: 100%;
+  display: block;
+  max-height: 420px;
+  object-fit: cover;
+}
+
+.figure-inline .article-img {
+  width: 100%;
+  display: block;
+  border-radius: 2px;
+}
+
+figcaption {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: var(--size-caption);
+  color: var(--color-subtext);
+  margin-top: 0.55rem;
+  padding: 0 0.25rem;
+  line-height: 1.5;
+}
+
+/* ---------- Article Body ---------- */
+.article-body {
+  margin-top: 1.5rem;
+}
+
+.article-body p {
+  margin-bottom: 1.35rem;
+  text-align: left;
+  font-size: var(--size-body);
+  color: var(--color-text);
+}
+
+/* ---------- Section Headings ---------- */
+.section-heading {
+  font-family: var(--font-heading);
+  font-size: var(--size-subheading);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-top: 2.8rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  text-align: left;
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: 0.4rem;
+}
+
+/* ---------- Hyperlinks ---------- */
+a {
+  color: var(--color-accent-blue);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease, opacity 0.15s ease;
+}
+
+a:hover,
+a:focus {
+  color: var(--color-accent-red);
+  opacity: 0.85;
+}
+
+/* Links inside headings inherit heading style but keep blue */
+.section-heading a {
+  color: var(--color-accent-blue);
+  font-weight: inherit;
+  text-decoration: underline;
+}
+
+/* ---------- Warning Keywords ---------- */
+.keyword-warning {
+  color: var(--color-accent-red);
+  font-weight: 700;
+}
+
+/* ---------- CTA Box (Reclaiming Control) ---------- */
+.cta-box {
+  background-color: var(--color-cta-bg);
+  border-left: 5px solid var(--color-accent-red);
+  border-radius: 2px;
+  padding: 1.5rem 1.6rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cta-box p {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+.cta-box p:last-child {
+  margin-bottom: 0;
+}
+
+.cta-box strong {
+  color: var(--color-accent-red);
+}
+
+/* ---------- Footer / References ---------- */
+.article-footer {
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--color-border);
+}
+
+.references-heading {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--color-subtext);
+  margin-bottom: 1rem;
+}
+
+.references-list {
+  padding-left: 1.25rem;
+  font-size: 0.88rem;
+  color: var(--color-subtext);
+  line-height: 1.7;
+}
+
+.references-list li {
+  margin-bottom: 0.65rem;
+}
+
+.references-list a {
+  font-size: inherit;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  :root {
+    --size-title:      1.9rem;
+    --size-subheading: 1.35rem;
+  }
+
+  .figure-full {
+    margin-left: calc(-1 * var(--side-pad));
+    margin-right: calc(-1 * var(--side-pad));
+  }
+}
